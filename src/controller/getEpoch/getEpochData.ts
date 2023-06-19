@@ -36,7 +36,7 @@ export async function getEpochData(req: Request, res: Response) {
             return res.status(500).send({ status: false, error: ERROR.INTERNAL_SERVER_ERROR });
         }
 
-        let epochsDatas:epochData[] = [];
+        let epochsDatas: epochData[] = [];
 
         for (let file of getALLEpochFile) {
             let getData: DeploymentData;
@@ -50,11 +50,11 @@ export async function getEpochData(req: Request, res: Response) {
                 continue;
             }
 
-            const data: epochData= {
-                epoch : getData.epoch,
+            const data: epochData = {
+                epoch: getData.epoch,
                 startDate: getData.startDate,
                 endDate: getData.endDate,
-                totalVolume : getData.totalVolume,
+                totalVolume: getData.totalVolume,
                 totalRewards: getData.totalReward,
                 rewardsDecimals: getData.rewardDecimals,
                 wightedVolume: getData.weightedVolume,
