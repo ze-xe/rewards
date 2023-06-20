@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const getEpochData_1 = require("../controller/getEpoch/getEpochData");
+const getUserAllEpoch_1 = require("../controller/getEpoch/getUserAllEpoch");
+const getUserEpoch_1 = require("../controller/getEpoch/getUserEpoch");
+const createEpoch_1 = require("../controller/startEpoch/createEpoch");
+const express = require('express');
+const router = express.Router();
+router.post("/epoch", createEpoch_1.createEpoch);
+router.get("/epoch/user/:epoch/:userId", getUserEpoch_1.getEpochUserData);
+router.get("/epoch/user/:userId", getUserAllEpoch_1.getUserAllEpochData);
+router.get("/epoch", getEpochData_1.getEpochData);
+exports.default = router;

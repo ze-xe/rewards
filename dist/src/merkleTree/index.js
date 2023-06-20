@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MerkleTree = void 0;
 const keccak256_1 = __importDefault(require("keccak256"));
+// leaves must be hashed
 class MerkleTree {
     constructor(leaves = []) {
         this.root = "";
@@ -21,13 +22,13 @@ class MerkleTree {
                     layers[layerIndex].push(nodes[i]);
                     continue;
                 }
-                const hashArray = (0, keccak256_1.default)(Number(nodes[i]) + Number(nodes[i + 1])).toString("hex");
+                const hashArray = (0, keccak256_1.default)((Number(nodes[i]) + Number(nodes[i + 1])).toString()).toString("hex");
                 const hash = '0x' + hashArray;
                 layers[layerIndex].push(hash);
             }
             nodes = layers[layerIndex];
-            this.root = layers[layers.length - 1][0];
         }
+        this.root = layers[layers.length - 1][0];
         return layers;
     }
     ;
@@ -59,7 +60,8 @@ class MerkleTree {
             const isRightNode = hash < node;
             const left = isRightNode ? hash : node;
             const right = isRightNode ? node : hash;
-            const hashArray = (0, keccak256_1.default)(Number(left) + Number(right)).toString("hex");
+            const add = Number(left) + Number(right);
+            const hashArray = (0, keccak256_1.default)(add.toString()).toString("hex");
             hash = '0x' + hashArray;
         }
         return hash === root;
@@ -67,15 +69,3 @@ class MerkleTree {
     ;
 }
 exports.MerkleTree = MerkleTree;
-const leaves = ["string6", "string7", "string8", "string10", "str", "stt", "abb", "ifbdifbw", "sidfbidbwd", "sdifbaiabc", "csdhbibcadivb"].map(e => "0x" + (0, keccak256_1.default)(e).toString("hex")); //.sort((a: any, b: any) => Number(a) - Number(b));
-const a = new MerkleTree(leaves);
-console.log(leaves);
-console.log(a);
-for (let e of leaves) {
-    const proof = a.getProof(e, leaves);
-    const veri = a.verify(e, proof);
-    console.log("ele", e);
-    console.log(proof);
-    console.log(veri);
-    console.log('-----------------');
-}

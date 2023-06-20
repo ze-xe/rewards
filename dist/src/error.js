@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ERROR = void 0;
+exports.ERROR = {
+    "EPOCH_DURATION_NOT_VALID": 1,
+    "INTERNAL_SERVER_ERROR": 2,
+    "ADD_VALID_EPOCH_DURATION_AND_START_TIME_IN_ENV": 3,
+    "ZEXE_TOKEN_ID_NOT_VALID": 4,
+    "ERROR_FROM_ORDERLY": 5,
+    "KEY_STORE_NOT_VALID": 6,
+    "CREATOR_NOT_VALID": 7,
+    "PERP_VS_SPOT_FRAC_NOT_FOUND": 8,
+    "EPOCH_NOT_INITIALIZE": 9,
+    "RE_TRY_AGAIN": 10,
+    "USER_NOT_FOUND": 11,
+    "_SECRET_NOT_FOUND_IN_ENV": 12,
+    "INPUT_MISSING": 13,
+    "SECRET_NOT_MATCHED": 14,
+    "EPOCH_IS_ALREADY_CREATED": 15
+};

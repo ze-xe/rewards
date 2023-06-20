@@ -29,7 +29,7 @@ export async function getEpochUserData(req: Request, res: Response) {
 
         let getData: DeploymentData;
         try {
-            getData = JSON.parse((await fs.readFile(path.join(__dirname + `../../../../deployments/epoch-${epoch}.json`))).toString());
+            getData = JSON.parse((await fs.readFile(path.join(__dirname + `../../../deployments/epoch-${epoch}.json`))).toString());
         }
         catch (error) {
             console.log("Epoch not found");
