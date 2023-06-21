@@ -23,7 +23,7 @@ export async function createDeployment(dep: DeploymentData): Promise<boolean | E
         users: dep.users
     }
     try {
-        await fs.writeFile(path.join(__dirname + `../../../../deployments/epoch-${dep.epoch}.json`), JSON.stringify(data));
+        await fs.writeFile(path.join(__dirname + `../../../../../deployments/epoch-${dep.epoch}.json`), JSON.stringify(data));
     }
     catch (e) {
         console.log(`Error @ handleMerkleTree in fs : ${e}`);

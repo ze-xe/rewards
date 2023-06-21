@@ -57,7 +57,7 @@ export async function deployMerkleTree(epoch: number, root: string, zexe: string
         }
 
         const admin = await nearConnection.account(creator);
-        const amount = new BN("8000000000000000000000000"); //10 Near
+        const amount = new BN("5489972359284592000000000"); //10 Near
 
         const createAccountData: ErrorResponse | {
             contract: nearAPI.providers.FinalExecutionOutcome;

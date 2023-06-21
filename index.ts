@@ -8,11 +8,9 @@ import morgan from "morgan";
 
 const app = express();
 
-const httpServer = createServer(app);
+
 app.use(express.json())
 app.use(compression());
-
-// require("dotenv").config();
 
 app.use(cors({
     origin: '*'
@@ -26,7 +24,7 @@ app.use("/", route);
 
 const port = process.env.PORT;
 
-let server = httpServer.listen(port ?? 3010, function () {
+let server = app.listen(port ?? 3010, function () {
     console.log(`⚡️[server]: Server is running at http://localhost:${port??3010}`);
 });
 

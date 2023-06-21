@@ -8,7 +8,7 @@ export async function isEpochCreated(epoch: number)
 :Promise<boolean>{
     try{
 
-       const getALLEpochFile = (await fs.readdir(path.join(__dirname + `../../../../deployments`), { withFileTypes: true }))
+       const getALLEpochFile = (await fs.readdir(path.join(__dirname + `../../../../../deployments`), { withFileTypes: true }))
         .filter(item => !item.isDirectory())
         .map(item => item.name);
 

@@ -27,7 +27,7 @@ export async function getEpochData(req: Request, res: Response) {
         let getALLEpochFile: string[];
 
         try {
-            getALLEpochFile = (await fs.readdir(path.join(__dirname + `../../../deployments`), { withFileTypes: true }))
+            getALLEpochFile = (await fs.readdir(path.join(__dirname + `../../../../deployments`), { withFileTypes: true }))
                 .filter(item => !item.isDirectory())
                 .map(item => item.name)
         }
@@ -42,7 +42,7 @@ export async function getEpochData(req: Request, res: Response) {
             let getData: DeploymentData;
 
             try {
-                getData = JSON.parse((await fs.readFile(path.join(__dirname + `../../../deployments/${file}`))).toString());
+                getData = JSON.parse((await fs.readFile(path.join(__dirname + `../../../../deployments/${file}`))).toString());
             }
             catch (error) {
                 console.log("Epoch not found");
