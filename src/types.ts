@@ -44,7 +44,7 @@ export interface DeploymentData {
 
 export interface ErrorResponse {
     status: boolean,
-    error: number,
+    error: string,
     statusCode: number
 }
 
